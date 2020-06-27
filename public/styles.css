@@ -48,17 +48,48 @@ header {
 }
 
 .links a:hover {
-    text-decoration: underline;
+    
     color: var(--color-pink);
 
 }
 
-link a:hover::after {
+.links a::after {
     content: "";
-    width: 100%;
+    width: 0;
     height: 2px;
-    background-color: var(--color-green);
+    background-color: var(--color-pink);
     position: absolute;
     left: 0;
     bottom: -4px;
+}
+
+.links a:hover::after {
+    width: 100%;
+    transition: width 350ms ease-in-out;
+}
+
+/* == CARD == */
+.card {
+    background-color: white;
+    width: 800px;
+    height: 400px;
+
+    margin: 45px auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    box-shadow: 10px 15px 30px 2px rgba(0, 0, 0, 0.5);
+
+    animation-name: up 200ms ease-out;
+}
+
+@keyframes up {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+    }
 }
