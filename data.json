@@ -1,0 +1,18 @@
+{
+  "instructors": [
+    {
+      "avatar_url": "http://google.com",
+      "name": "Victor",
+      "birth": "2000-02-20",
+      "gender": "M",
+      "services": "Crossfit, Gym"
+    },
+    {
+      "avatar_url": "https://google.com",
+      "name": "Jão",
+      "birth": "2000-02-01",
+      "gender": "M",
+      "services": "Crosfite"
+    }
+  ]
+}
