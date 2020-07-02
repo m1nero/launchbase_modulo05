@@ -11,7 +11,14 @@ exports.show = function (req, res) {
     if (!foundIntructor) {
         return res.send("Instructor not found!")
     }
-    return res.render("instructors/show", {instructor: foundIntructor});
+
+    const instructor = {
+        ...foundIntructor,
+        age:"",
+        services: foundIntructor.services.split(","),
+        created_at:""
+    }
+    return res.render("instructors/show", {instructor});
 }
 
 exports.post = function (req, res) {
