@@ -11,7 +11,7 @@ exports.show = function (req, res) {
     if (!foundIntructor) {
         return res.send("Instructor not found!")
     }
-    return res.send(foundIntructor);
+    return res.render("instructors/show", {instructor: foundIntructor});
 }
 
 exports.post = function (req, res) {
