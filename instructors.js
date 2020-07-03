@@ -1,5 +1,6 @@
 const fs = require('fs');
 const data = require('./data.json');
+const {age} = require('./utils');
 
 exports.show = function (req, res) {
     const { id } = req.params;
@@ -14,9 +15,9 @@ exports.show = function (req, res) {
 
     const instructor = {
         ...foundIntructor,
-        age:"",
+        age: age(foundIntructor.birth),
         services: foundIntructor.services.split(","),
-        created_at:""
+        created_at: new Intl.DateTimeFormat("pt-BR").format(foundIntructor.created_at)
     }
     return res.render("instructors/show", {instructor});
 }
