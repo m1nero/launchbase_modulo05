@@ -20,6 +20,8 @@ routes.get('/members', function (req, res) {
 
 routes.get('/instructors/:id', instructors.show);
 
+routes.get('/instructors/:id/edit', instructors.edit);
+
 routes.post("/instructors", instructors.post);
 
 module.exports = routes;
