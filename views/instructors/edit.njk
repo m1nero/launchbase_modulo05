@@ -2,19 +2,25 @@
 
 {% block content %}
 
-<form class="card" method="POST" action="/instructors">
-    <section 
-        class="avatar" 
-        style="background: url(https://source.unsplash.com/collection/10552289/500x500) no-repeat center center / cover">
+<div class="card">
+    <form class="card" method="POST" action="/instructors?_method=PUT">
+        <section 
+            class="avatar" 
+            style="background: url(https://source.unsplash.com/collection/10552289/500x500) no-repeat center center / cover">
+        </section>
 
-    </section>
+        <section class="details">
+            <h3>Editar Instrutor</h3>
 
-    <section class="details">
-        <h3>Editar Instrutor</h3>
+            {% include 'instructors/fields.njk' %}
+            <input type="hidden" name="id" value={{instructor.id}}>
+    </form>
 
-        {% include 'instructors/fields.njk' %}
-
-    </section>
-</form>
-
+            <form id="form-delete" action="/instructors?_method=DELETE" method="post">
+                <input type="hidden" name="id" value={{instructor.id}}>
+                <button type="submit">Deletar</button>
+            </form>
+        </section>
+    
+</div>
 {% endblock content %}
