@@ -1,6 +1,6 @@
 const fs = require('fs');
 const data = require('../data.json');
-const {age, date} = require('../utils');
+const {date} = require('../utils');
 
 exports.index = function (req, res) {
     return res.render("members/index", {members:data.members});
@@ -14,12 +14,12 @@ exports.show = function (req, res) {
     })
 
     if (!foundMember) {
-        return res.send("Member not found!")
+        return res.send("Member not found!");
     }
 
     const member = {
         ...foundMember,
-        age: age(foundMember.birth),
+        birth: date(foundMember.birth).birthDay
     }
     return res.render("members/show", {member});
 }
@@ -36,20 +36,20 @@ exports.post = function (req, res) {
         }
     }
 
-    let {avatar_url, birth, name, services, gender} = req.body
-
     birth = Date.parse(req.body.birth);
-    const created_at = Date.now();
-    const id = Number(data.members.length + 1);
+    
+    let id = 1;
+    
+    const lastMember = data.members[data.members.length - 1];
+    
+    if (lastMember) {
+        id = lastMember.id + 1;
+    }
 
     data.members.push({
+        ...req.body,
         id,
-        avatar_url,
-        name,
         birth,
-        gender,
-        services,
-        created_at
     });
 
     fs.writeFile("data.json", JSON.stringify(data, null, 2), function (){
@@ -58,8 +58,6 @@ exports.post = function (req, res) {
         }
         return res.redirect("/members")
     });
-
-    //return res.send(keys);
 }
 
 exports.edit = function (req, res) {
@@ -75,7 +73,7 @@ exports.edit = function (req, res) {
 
     const member = {
         ...foundMember,
-        birth: date(foundMember.birth)
+        birth: date(foundMember.birth).iso
     }
 
     return res.render('members/edit', {member})

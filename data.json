@@ -1,5 +1,28 @@
 {
-  "members": [],
+  "members": [
+    {
+      "avatar_url": "https://pbs.twimg.com/profile_banners/2899181536/1551663058/600x200",
+      "name": "Victor",
+      "email": "victor@abc.com",
+      "birth": 959558400000,
+      "gender": "M",
+      "blood": "B+",
+      "weight": "74",
+      "height": "182",
+      "id": 1
+    },
+    {
+      "avatar_url": "http://g1.com",
+      "name": "Jorge",
+      "email": "jorge@abc.com",
+      "birth": 959558400000,
+      "gender": "M",
+      "blood": "A-",
+      "weight": "83",
+      "height": "197",
+      "id": 2
+    }
+  ],
   "instructors": [
     {
       "id": 1,
