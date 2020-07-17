@@ -1,0 +1,12 @@
+Liga
+1.
+    cd "C:\Program Files\PostgreSQL\12\bin\"
+
+2. 
+    .\pg_ctl.exe -D "C:\Program Files\PostgreSQL\12\data" start
+
+Desliga
+1.
+    cd "C:\Program Files\PostgreSQL\12\bin\"
+2.
+    .\pg_ctl.exe -D "C:\Program Files\PostgreSQL\12\data" stop
