@@ -1,6 +1,6 @@
 {
   "name": "modulo05",
-  "version": "1.7.1",
+  "version": "1.7.3",
   "main": "server.js",
   "scripts": {
     "start": "npm-run-all -p nodemon browsersync",
